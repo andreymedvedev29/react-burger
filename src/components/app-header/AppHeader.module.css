@@ -1,0 +1,60 @@
+.AppHeader {
+    width: 1920px;
+    height: 88px;
+    display: flex;
+    align-items: center;
+    background: #1C1C21;
+    margin-top: 40px;
+    
+}
+
+.BurgerIcon {
+    width: 178px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    margin-left: 320px;
+    align-items: center;
+    justify-content: center;
+}
+.ListIcon {
+    width: 178px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    margin-left: 8px;
+    align-items: center;
+    justify-content: center;
+    color: #8585AD;
+}
+.Logo {
+    margin-left: 118px;
+}
+.ProfileIcon {
+    width: 178px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    margin-left: 288px;
+    align-items: center;
+    justify-content: center;
+    color: #8585AD;
+}
