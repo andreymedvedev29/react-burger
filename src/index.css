@@ -3,8 +3,22 @@ body {
 }
 
 @font-face {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'JetBrains Mono';
   font-style: normal;
   font-weight: 400;
   src: url("./fonts/JetBrainsMono-Regular.woff") format("woff");
 }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: bold;
+  font-weight: 700;
+  src: url("./fonts/JetBrainsMono-Bold.woff") format("woff");
+}
+@font-face {
+  font-family: 'Iceland';
+  font-style: normal;
+  font-weight: 400;
+  src: url("./fonts/Iceland-Regular.woff") format("woff");
+}
+

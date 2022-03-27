@@ -1,3 +1,3 @@
-export default function BurgerIngredients () {
+export default function BurgerConstructor () {
     
 }
