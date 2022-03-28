@@ -15,6 +15,7 @@ body {
   font-weight: 700;
   src: url("./fonts/JetBrainsMono-Bold.woff") format("woff");
 }
+
 @font-face {
   font-family: 'Iceland';
   font-style: normal;

@@ -8,10 +8,10 @@ export default function App() {
   return (
     <>
       <AppHeader />
-      <div className={ styles.App }>
+      <section className={ styles.App }>
         <BurgerIngredients />
         <BurgerConstructor />
-      </div>
+      </section>
       
     </>
   )

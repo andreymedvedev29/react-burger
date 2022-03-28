@@ -52,7 +52,7 @@
 
 .PriceCoin {
     margin: 8px;
-    font-family: 'Iceland';
+    font-family: 'Iceland', monospace;
     font-size: 28px;
     font-style: normal;
     font-weight: 400;

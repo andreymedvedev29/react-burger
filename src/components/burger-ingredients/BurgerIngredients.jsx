@@ -11,7 +11,7 @@ import SauceOne from '../../images/sauce-01.svg'
 export default function BurgerIngredients () {
     const [current, setCurrent] = useState('one')
     return (
-        <div className={ styles.BurgerIngredients }>
+        <section className={ styles.BurgerIngredients }>
             <h1 className={ styles.Title }>Соберите бургер</h1>
             <div style={{ display: 'flex' }}>
                 <Tab value="one" active={current === 'one'} onClick={setCurrent}>
@@ -70,7 +70,7 @@ export default function BurgerIngredients () {
                     </div>
                 </div>  
             </div>
-        </div>
+        </section>
     )
 }
 

@@ -32,7 +32,7 @@
 }
 
 .Price {
-    font-family: 'Iceland';
+    font-family: 'Iceland', monospace;
     font-size: 48px;
     font-style: normal;
     font-weight: 400;

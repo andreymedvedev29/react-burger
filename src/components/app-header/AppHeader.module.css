@@ -4,8 +4,7 @@
     display: flex;
     align-items: center;
     background: #1C1C21;
-    margin: 40px auto 0;
-    
+    margin: 40px auto 0;   
 }
 
 .BurgerIcon {
@@ -19,9 +18,9 @@
     font-weight: 400;
     line-height: 24px;
     letter-spacing: 0em;
-    margin-left: 355px;
-    
+    margin-left: 355px;    
 }
+
 .ListIcon {
     width: 178px;
     height: 56px;
@@ -41,6 +40,7 @@
 .Logo {
     margin-left: 118px;
 }
+
 .ProfileIcon {
     width: 178px;
     height: 56px;

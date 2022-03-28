@@ -1,17 +1,19 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import { ConstructorElement, DragIcon, CurrencyIcon, Button } from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './BurgerConstructor.module.css';
 import BunTwo from '../../images/bun-02.svg'
 import SauceOne from '../../images/sauce-01.svg'
 
 
-export default function BurgerConstructor () {
+export default function BurgerConstructor (props) {
     return (
-        <div className={ styles.BurgerConstructor }>   
+        <section className={ styles.BurgerConstructor }>   
               <div style={{ marginLeft: '55px',marginBottom: '10px' }}>
                 <ConstructorElement
                     type="top"
                     isLocked={true}
-                    text="Краторная булка N-200i (верх)"
+                    text="Краторная булка N-200i (низ)"
                     price={200}
                     thumbnail={BunTwo}
                  />
@@ -87,7 +89,7 @@ export default function BurgerConstructor () {
                 <div className={ styles.PriceIcon }><p className={ styles.Price }>610</p><CurrencyIcon type="primary" /></div>   
                 <div className={ styles.ButtonIcon }><Button type="primary" size="medium">Нажми на меня</Button></div>
             </div> 
-        </div> 
-          
+        </section>      
     )
 }
+
