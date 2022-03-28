@@ -1,6 +1,7 @@
 
 import AppHeader from '../app-header/AppHeader';
 import BurgerIngredients from '../burger-ingredients/BurgerIngredients';
+import BurgerConstructor from '../burger-constructor/BurgerConstructor';
 import styles from './App.module.css';
 
 export default function App() {
@@ -9,7 +10,7 @@ export default function App() {
       <AppHeader />
       <div className={ styles.App }>
         <BurgerIngredients />
-         
+        <BurgerConstructor />
       </div>
       
     </>
