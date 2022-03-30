@@ -13,8 +13,8 @@ export default function BurgerConstructor (props) {
                 <ConstructorElement
                     type="top"
                     isLocked={true}
-                    text="Краторная булка N-200i (низ)"
-                    price={200}
+                    text="Краторная булка N-200i (верх)"
+                    price={100}
                     thumbnail={BunTwo}
                  />
                  </div>           
