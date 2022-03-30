@@ -1,88 +1,47 @@
-.BurgerIngredients {
-    width: 600px;
-    max-height: 912px;
-    background: #131316;
-    margin: 40px 0 0 355px;
-}
-
-.Section {
-    max-height: 580px;
-    overflow-y: scroll;
-}
-
-.Section::-webkit-scrollbar {
-    width: 8px;
-    background-color: #2F2F37;
-}
-
-.Section::-webkit-scrollbar-thumb {
-    background-color: #8585AD;
-}
-
-.Title {
-    font-family: 'JetBrains Mono', monospace ;
-    font-size: 36px;
-    font-style: bold;
-    font-weight: 700;
-    line-height: 40px;
-    letter-spacing: 0em;
-    text-align: left;
-    margin: 40px 0 20px;
-    color: #F2F2F3;
-}
-.SubTitle {
-    font-family: 'JetBrains Mono', monospace ;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 30px;
-    letter-spacing: 0em;
-    text-align: left; 
-    margin: 40px 0 24px;
-    color: #F2F2F3;
-}
-
-.Price {
+.container {
+    max-width: 600px;
+  }
+  
+  .priceCont {
     display: flex;
-    align-items: center;
-    color: #F2F2F3;
-    margin-left: 121px;
-    margin: 0 auto;
-}
-
-.PriceCoin {
-    margin: 8px;
-    font-family: 'Iceland', monospace;
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0em;
-}
-
-.Container {
-    display: flex;
-    margin-top: 32px;
-}
-
-.Block {
-    width: 272px;
-    height: 208px;
+  }
+  
+  .item {
     display: flex;
     flex-direction: column;
-    margin: auto;
+    align-items: center;
     position: relative;
-}
-
-.Name {
-    margin: 0 auto;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0em;
+    max-width: 271px;
+    width: 100%;
+  }
+  
+  .list {
+    display: flex;
+    flex-wrap: wrap;
     text-align: center;
-}
-
-
+  
+            max-width: 600px;
+  
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .lists {
+    overflow-y: scroll;
+    max-height: 756px; 
+    min-height: 756px;
+  }
+  
+  .lists::-webkit-scrollbar {
+    width: 8px;
+    background-color: #2F2F37;
+  }
+  
+  .lists::-webkit-scrollbar-thumb {
+    background-color: #8585AD;
+  }
+  
+  .tab {
+    display: flex;
+  }

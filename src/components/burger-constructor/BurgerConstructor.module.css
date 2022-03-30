@@ -1,53 +1,30 @@
-.BurgerConstructor {
-    width: 600px;
-    max-height: 912px;
-    background: #131316;
-    margin: 100px 0 0 40px;
-}
-
-.Burger {
-    max-height: 350px;
+.list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    max-height: 484px;
+    min-height: 484px;
     overflow-y: scroll;
-}
-
-.Burger::-webkit-scrollbar {
+  }
+  
+  .list::-webkit-scrollbar {
     width: 8px;
     background-color: #2F2F37;
-}
-
-.Burger::-webkit-scrollbar-thumb {
+  }
+  
+  .list::-webkit-scrollbar-thumb {
     background-color: #8585AD;
-}
-
-
-.Element {
+  }
+  
+  .item {
     display: flex;
     align-items: center;
-}
-
-.Button {
+  }
+  
+  .buttonCont {
     display: flex;
     align-items: center;
-    margin: 0 auto auto 230px;
-}
+    justify-content: end;
+  }
+  
 
-.Price {
-    font-family: 'Iceland', monospace;
-    font-size: 48px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 36px;
-    letter-spacing: 0em;
-    text-align: right;
-    margin-right: 10px;
-}
-
-.ButtonIcon {
-    margin-left: 42px;
-}
-
-.PriceIcon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}

@@ -1,5 +1,9 @@
 .App {
+  max-width: 1240px;
+  max-height: 800px;
+  margin: 0 auto;
   display: flex;
-  max-height: 700px;
 }
+
+
 

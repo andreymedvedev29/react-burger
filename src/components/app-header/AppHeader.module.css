@@ -1,57 +1,43 @@
 .AppHeader {
-    width: 1920px;
-    height: 88px;
-    display: flex;
-    align-items: center;
     background: #1C1C21;
-    margin: 40px auto 0;   
-}
-
-.BurgerIcon {
-    width: 178px;
-    height: 56px;
+    width: 100%;
+  }
+  
+  .nav {
+    max-width: 1240px;
+    margin: auto;
+  }
+  
+  .menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; 
+    gap: 0px; 
+    grid-template-areas: "constructor lenta logo logo . profile"; 
+  }
+  
+  .item {
     display: flex;
-    align-items: center;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0em;
-    margin-left: 355px;    
-}
-
-.ListIcon {
-    width: 178px;
-    height: 56px;
-    display: flex;
-    align-items: center;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0em;
-    margin-left: 8px;
-    align-items: center;
-    justify-content: center;
-    color: #8585AD;
-}
-.Logo {
-    margin-left: 118px;
-}
-
-.ProfileIcon {
-    width: 178px;
-    height: 56px;
-    display: flex;
-    align-items: center;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0em;
-    margin-left: 288px;
-    color: #8585AD;
-}
+  }
+  
+  .logo {
+    margin: 0;
+    grid-area: logo;
+    text-align: center;
+    align-self: center;
+  }
+  
+  .constructor {
+    grid-area: constructor;
+  }
+  
+  .lenta {
+    grid-area: lenta;
+  }
+  
+  .profile {
+    grid-area: profile;
+  }

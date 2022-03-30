@@ -1,13 +1,44 @@
-import { Logo, BurgerIcon, ListIcon,  ProfileIcon } from '@ya.praktikum/react-developer-burger-ui-components';
+
+import React from 'react';
+import { Logo, BurgerIcon, ListIcon, ProfileIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './AppHeader.module.css'
 
-export default function AppHeader () {
-    return (
-      <section className={ styles.AppHeader }>
-        <div className={ styles.BurgerIcon }><BurgerIcon type="primary" /><p className="ml-2 mr-2 mb-2 mt-2"> Конструктор</p></div>
-        <div className={ styles.ListIcon }><ListIcon type="secondary" /><p className="ml-2 mr-2 mb-2 mt-2"> Лента заказов</p></div>
-        <div className={ styles.Logo } ><Logo  /></div>
-        <div className={ styles.ProfileIcon } ><ProfileIcon type="secondary" /><p className="ml-2 mr-2 mb-2 mt-2"> Личный кабинет</p></div>
-      </section>
-    )
+export default function AppHeader() {
+  return (
+    <header className={styles.AppHeader + " mt-10"}>
+      <nav className ={styles.nav}>
+        <ul className ={styles.menu}>
+          <li className = {styles.constructor + " ml-5"}>
+            <div className={styles.item + " p-5 mt-4 mb-4"}>
+              <BurgerIcon type="primary"/>
+              <p className="text text_type_main-small ml-2">
+                Конструктор
+              </p>
+            </div>
+          </li>
+          <li className ={styles.lenta + " ml-2 p-5 mt-4 mb-4"}> 
+            <div className={styles.item}>
+              <ListIcon type="secondary" />
+              <p className="text text_type_main-default text_color_inactive pl-2">
+                Лента заказов
+              </p>
+            </div>
+          </li>
+          <li className ={styles.logo}>
+              <Logo />
+          </li>
+          <li className ={styles.profile + " p-5 mt-4 mb-4"}>
+            <div className={styles.item}>
+              <ProfileIcon type="secondary" />
+              <p className="text text_type_main-default text_color_inactive pl-2">
+                Личный кабинет
+              </p>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  );
 }
+
+
