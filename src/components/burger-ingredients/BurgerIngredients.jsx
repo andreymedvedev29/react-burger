@@ -9,7 +9,7 @@ export default function BurgerIngredients() {
   const [current, setCurrent] = React.useState('one')
 
   return (
-    <main className={styles.container}>
+    <section className={styles.container}>
       
       <p className="text text_type_main-large mt-10">
         Соберите бургер
@@ -103,7 +103,7 @@ export default function BurgerIngredients() {
           })}
         </ul>
       </div>
-    </main>
+    </section>
   );
 }
 
