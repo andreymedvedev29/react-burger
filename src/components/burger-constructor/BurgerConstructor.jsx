@@ -4,9 +4,9 @@ import styles from './BurgerConstructor.module.css';
 import BunTwo from '../../images/bun-02.png'
 
 
-import data from '../../utils/data'
+//import data from '../../utils/data'
 
-export default function BurgerConstructor() {
+export default function BurgerConstructor({data}) {
   return (
     <div className='ml-10 mt-25'>
       <div >

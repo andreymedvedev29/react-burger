@@ -2,10 +2,10 @@ import React from 'react';
 import { Counter, Tab, CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './BurgerIngredients.module.css'
 
-import data from '../../utils/data'
+//import data from '../../utils/data'
 
 
-export default function BurgerIngredients() {
+export default function BurgerIngredients({data}) {
   const [current, setCurrent] = React.useState('one')
 
   return (
