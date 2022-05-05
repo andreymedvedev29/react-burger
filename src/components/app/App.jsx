@@ -6,17 +6,19 @@ import BurgerIngredients from '../burger-ingredients/BurgerIngredients';
 import BurgerConstructor from '../burger-constructor/BurgerConstructor';
 import baseUrl from '../../utils/data';
 
+
+
 export default function App() {
 
-  const [ingridients, setIngridients] = useState({ 
+  const [ingredients, setIngredients] = useState({ 
     isLoading: false,
     hasError: false,
     data: []
   });
 
   useEffect(() => {
-  const getIngridients = async() => {
-    setIngridients({ ...ingridients, hasError: false, isLoading: true })
+  const getIngredients = async () => {
+    setIngredients({ ...ingredients, hasError: false, isLoading: true })
     fetch(baseUrl)
       .then((res) => {
         if (res.ok) {
@@ -25,27 +27,27 @@ export default function App() {
         return Promise.reject(res.status);
       })
       .then((res) => 
-      setIngridients({ 
-        ...ingridients, 
+      setIngredients({ 
+        ...ingredients, 
         data: res.data, 
         isLoading: false,
         isLoading: false,
        })
       )
       .catch((e) => 
-        setIngridients({ ...ingridients, hasError: true, isLoading: false })
+        setIngredients({ ...ingredients, hasError: true, isLoading: false })
       );
   };
 
-    getIngridients();
+    getIngredients();
   }, []);
 
   return (
     <>
       <AppHeader />
       <main className={ styles.App }>
-        <BurgerIngredients data={ingridients.data}/>
-        <BurgerConstructor data={ingridients.data}/>
+        <BurgerIngredients data={ingredients.data}/>
+        <BurgerConstructor data={ingredients.data}/>
       </main>  
     </>
   )
