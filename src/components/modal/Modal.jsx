@@ -1,6 +1,8 @@
-import {React, useState, useEffect} from 'react';
+import {React, useEffect} from 'react';
+import ReactDOM  from 'react-dom';
 import styles from './Modal.module.css';
 import { CloseIcon } from '@ya.praktikum/react-developer-burger-ui-components';
+import ModalOverlay from '../modal-overlay/ModalOverlay';
 
 
 const modalsContainer = document.querySelector('#modals');
