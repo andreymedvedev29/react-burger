@@ -8,6 +8,7 @@ import ModalOverlay from '../modal-overlay/ModalOverlay';
 const modalsContainer = document.querySelector('#modals');
 
 export default function Modal({title, onClose, children}) {
+  
     const handleEscKeydown = (e) => {
         e.key === "Escape" && onClose();
     };
@@ -19,20 +20,20 @@ export default function Modal({title, onClose, children}) {
         };
     }, []);
 
-  return ReactDOM.createPortal(
-    <>
-      <div className={styles.modal}>
-        <div className={styles.title + "mt-10 ml-10 mr-10"}>
+    return ReactDOM.createPortal(
+      <>
+        <div className={styles.modal}>
+          <div className={styles.title + ' mt-10 ml-10 mr-10'}>
             <p className="text text_type_main-large">
-               {title} 
+              {title}
             </p>
             <CloseIcon type="primary" onClick={onClose}/>
+          </div>
+          {children}
         </div>
-        {children}
-      </div>
-      <ModalOverlay onClick={onClose} />
-    </>,
-    modalsContainer
-  )
+        <ModalOverlay onClick={onClose} />
+      </>,
+      modalsContainer 
+    );
 }
 

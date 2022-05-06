@@ -4,9 +4,9 @@ import styles from './BurgerConstructor.module.css';
 import BunTwo from '../../images/bun-02.png'
 
 
-//import data from '../../utils/data'
 
-export default function BurgerConstructor({data}) {
+export default function BurgerConstructor(props) {
+  const dataList = props.data.data;
   return (
     <div className='ml-10 mt-25'>
       <div >
@@ -20,7 +20,7 @@ export default function BurgerConstructor({data}) {
             />
           </div>
           <ul className={styles.list}>
-            {data.map( el =>{
+            {dataList && dataList.map( el =>{
               if (el.type == "bun"){
                 return null
               }else {
@@ -48,14 +48,14 @@ export default function BurgerConstructor({data}) {
       </div>
       <div className={styles.buttonCont +' mt-10'}>
         <p className="text text_type_main-large mr-2">
-          {data.reduce( (total, current) => {
+          {dataList && dataList.reduce( (total, current) => {
             return total + Number(current.price)
           },0)}
         </p>
         <div className='mr-10'>
           <CurrencyIcon type="primary" />
         </div>
-        <Button type="primary" size="large">
+        <Button type="primary" size="large" onClick={props.openModal}>
           Оформить заказ
         </Button>
       </div>

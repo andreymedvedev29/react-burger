@@ -13,38 +13,21 @@ import baseUrl from '../../utils/data';
 
 export default function App() {
   const [orderNumber, setOrderNumber] = useState(555);
-
-  const [ingredients, setIngredients] = useState({ 
-    isLoading: false,
-    hasError: false,
-    data: []
-  });
-
+  const [data, setData] = useState({})
+  
   useEffect(() => {
-  const getIngredients = async () => {
-    setIngredients({ ...ingredients, hasError: false, isLoading: true })
     fetch(baseUrl)
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(res.status);
-      })
-      .then((res) => 
-      setIngredients({ 
-        ...ingredients, 
-        data: res.data, 
-        isLoading: false,
-        isLoading: false,
-       })
-      )
-      .catch((e) => 
-        setIngredients({ ...ingredients, hasError: true, isLoading: false })
-      );
-  };
-
-    getIngredients();
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Ошибка ${res.status}`);
+    })
+    .then(setData)
+    .catch((res) => alert(`Ошибка обращения к серверу: ${res}`));
   }, []);
+
+  
 
   const [isOrderDetailsOpened, setIsOrderDetailsOpened] = useState(false); 
   const [ingredientDetailsOpened, setIngredientDetailsOpened] = useState(false);
@@ -81,14 +64,14 @@ export default function App() {
         title="Детали ингредиента"
         onClose={closeAllModals}
       >
-        <IngredientDetails IngredientOpened={ingredients.data.find( el => el._id == ingredientIdOpened )}/>
+        <IngredientDetails IngredientOpened={data.data.find( el => el._id == ingredientIdOpened )}/>
       </Modal>
       }
 
       <AppHeader />
       <section className={styles.container}>
-        <BurgerIngredients data={ingredients.data} setIngredientOpened={setIngredientOpened}/>
-        <BurgerConstructor data={ingredients.data} openModal={openTotalModal}/>
+        <BurgerIngredients data={data} setIngredientOpened={setIngredientOpened}/>
+        <BurgerConstructor data={data} openModal={openTotalModal}/>
       </section>
     </div>
   );

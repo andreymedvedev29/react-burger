@@ -1,15 +1,16 @@
 import React from 'react';
-import { Counter, Tab, CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
-import styles from './BurgerIngredients.module.css'
+import { Tab } from '@ya.praktikum/react-developer-burger-ui-components';
+import styles from './BurgerIngredients.module.css';
+import Ingredient from '../ingredient/Ingredient';
 
-//import data from '../../utils/data'
 
 
-export default function BurgerIngredients({data}) {
+
+export default function BurgerIngredients(props) {
   const [current, setCurrent] = React.useState('one')
-
+  const datalist = props.data.data;
   return (
-    <section className={styles.container}>
+    <section className={styles.main}>
       
       <p className="text text_type_main-large mt-10">
         Соберите бургер
@@ -32,21 +33,9 @@ export default function BurgerIngredients({data}) {
           Булки
         </p>
         <ul className={styles.list}>
-          {data.map( el =>{
+          {datalist && datalist.map( el =>{
             if (el.type == "bun"){
-              return (           
-                <li className={styles.item + " mt-6 ml-5"} key={el._id}>
-                  <Counter count={1} size="default" />
-                  <img className='ml-4 mr-4' src={el.image} alt="" />
-                  <div className={styles.priceCont + " mt-1 mb-1"}>
-                    <p className="text text_type_digits-default mr-2">{el.price}</p>
-                    <CurrencyIcon type="primary" />
-                  </div>
-                  <p className="text text_type_main-default">
-                    {el.name}
-                  </p>
-                </li>
-                )
+              return (<Ingredient el={el} key={el._id} setIngredientOpened={props.setIngredientOpened}/>)
             }else {
               return null
             }
@@ -57,21 +46,9 @@ export default function BurgerIngredients({data}) {
           Соусы
         </p>
         <ul className={styles.list}>
-          {data.map( el =>{
+          {datalist && datalist.map( el =>{
             if (el.type == "sauce"){
-              return (           
-                <li className={styles.item + " mt-6 ml-5"} key={el._id}>
-                  <Counter count={1} size="default" />
-                  <img className='ml-4 mr-4' src={el.image} alt="" />
-                  <div className={styles.priceContainer  + " mt-1 mb-1"}>
-                    <p className="text text_type_digits-default mr-2">{el.price}</p>
-                    <CurrencyIcon type="primary" />
-                  </div>
-                  <p className="text text_type_main-default">
-                    {el.name}
-                  </p>
-                </li>
-                )
+              return (<Ingredient el={el} key={el._id} setIngredientOpened={props.setIngredientOpened}/>)
             }else {
               return null
             }
@@ -82,21 +59,9 @@ export default function BurgerIngredients({data}) {
           Начинки
         </p>
         <ul className={styles.list}>
-          {data.map( el =>{
+          {datalist && datalist.map( el =>{
             if (el.type == "main"){
-              return (           
-                <li className={styles.item + " mt-6 ml-5"} key={el._id}>
-                  <Counter count={1} size="default" />
-                  <img className='ml-4 mr-4' src={el.image} alt="" />
-                  <div className={styles.priceContainer + " mt-1 mb-1"}>
-                    <p className="text text_type_digits-default mr-2">{el.price}</p>
-                    <CurrencyIcon type="primary" />
-                  </div>
-                  <p className="text text_type_main-default">
-                    {el.name}
-                  </p>
-                </li>
-                )
+              return (<Ingredient el={el} key={el._id} setIngredientOpened={props.setIngredientOpened}/>)
             }else {
               return null
             }
