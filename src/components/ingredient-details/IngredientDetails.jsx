@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { ingredientPropType } from '../../utils/prop-types';
 import styles from './IngredientDetails.module.css';
-
 
 
 export default function IngredientDetails({IngredientOpened}) {
@@ -28,4 +29,8 @@ export default function IngredientDetails({IngredientOpened}) {
       </ul>
     </div>
   )
+}
+
+IngredientDetails.propTypes = {
+  IngredientOpened: ingredientPropType,
 }

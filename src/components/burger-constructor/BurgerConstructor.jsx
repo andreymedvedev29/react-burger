@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { ingredientPropType } from '../../utils/prop-types';
 import { ConstructorElement, DragIcon, CurrencyIcon, Button } from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './BurgerConstructor.module.css';
 import BunTwo from '../../images/bun-02.png'
-
 
 
 export default function BurgerConstructor(props) {
@@ -61,6 +62,11 @@ export default function BurgerConstructor(props) {
       </div>
     </div>
   );
+}
+
+BurgerConstructor.propTypes = {
+  datalist: ingredientPropType,
+  openModal: PropTypes.func.isRequired,
 }
 
 

@@ -1,15 +1,12 @@
 import {React, useState, useEffect} from 'react';
 import styles from './App.module.css';
-
 import AppHeader from '../app-header/AppHeader';
 import BurgerIngredients from '../burger-ingredients/BurgerIngredients';
 import BurgerConstructor from '../burger-constructor/BurgerConstructor';
 import Modal from '../modal/Modal';
 import OrderDetails from '../order-details/OrderDetails';
 import IngredientDetails from '../ingredient-details/IngredientDetails';
-import baseUrl from '../../utils/data';
-
-
+import {baseUrl} from '../../utils/data';
 
 export default function App() {
   const [orderNumber, setOrderNumber] = useState(555);
@@ -24,15 +21,12 @@ export default function App() {
       return Promise.reject(`Ошибка ${res.status}`);
     })
     .then(setData)
-    .catch((res) => alert(`Ошибка обращения к серверу: ${res}`));
+    .catch((res) => alert(`Ошибка: ${res}`));
   }, []);
-
-  
 
   const [isOrderDetailsOpened, setIsOrderDetailsOpened] = useState(false); 
   const [ingredientDetailsOpened, setIngredientDetailsOpened] = useState(false);
   const [ingredientIdOpened, setIngredientIdOpened] = useState(12);
-
  
   const setIngredientOpened = (id) => {
     setIngredientDetailsOpened(true)

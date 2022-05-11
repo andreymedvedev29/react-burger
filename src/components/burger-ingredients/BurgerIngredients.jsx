@@ -1,9 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { ingredientPropType } from '../../utils/prop-types';
 import { Tab } from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './BurgerIngredients.module.css';
 import Ingredient from '../ingredient/Ingredient';
-
-
 
 
 export default function BurgerIngredients(props) {
@@ -70,6 +70,11 @@ export default function BurgerIngredients(props) {
       </div>
     </section>
   );
+}
+
+BurgerIngredients.propTypes = {
+  datalist: ingredientPropType,
+  setIngredientOpened: PropTypes.func.isRequired,
 }
 
 

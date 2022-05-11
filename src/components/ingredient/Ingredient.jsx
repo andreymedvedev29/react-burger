@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { ingredientPropType } from '../../utils/prop-types';
 import styles from './Ingredient.module.css'
-
 import { Counter,CurrencyIcon} from '@ya.praktikum/react-developer-burger-ui-components';
+
 
 export default function Ingredient({el, setIngredientOpened}) {
   return (
@@ -17,4 +19,9 @@ export default function Ingredient({el, setIngredientOpened}) {
       </p>
     </li>
   )
+}
+
+Ingredient.propTypes = {
+  el: ingredientPropType,
+  setIngredientOpened: PropTypes.func.isRequired,
 }
