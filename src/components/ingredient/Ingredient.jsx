@@ -22,6 +22,6 @@ export default function Ingredient({el, setIngredientOpened}) {
 }
 
 Ingredient.propTypes = {
-  el: ingredientPropType,
+  el: ingredientPropType.isRequired,
   setIngredientOpened: PropTypes.func.isRequired,
 }

@@ -32,5 +32,5 @@ export default function IngredientDetails({IngredientOpened}) {
 }
 
 IngredientDetails.propTypes = {
-  IngredientOpened: ingredientPropType,
+  IngredientOpened: ingredientPropType.isRequired,
 }

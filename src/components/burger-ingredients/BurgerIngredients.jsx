@@ -8,7 +8,7 @@ import Ingredient from '../ingredient/Ingredient';
 
 export default function BurgerIngredients(props) {
   const [current, setCurrent] = React.useState('one')
-  const datalist = props.data.data;
+  const dataList = props.data.data;  // сохраняем пропс в переменную
   return (
     <section className={styles.main}>
       
@@ -33,7 +33,7 @@ export default function BurgerIngredients(props) {
           Булки
         </p>
         <ul className={styles.list}>
-          {datalist && datalist.map( el =>{
+          {dataList && dataList.map( el =>{
             if (el.type == "bun"){
               return (<Ingredient el={el} key={el._id} setIngredientOpened={props.setIngredientOpened}/>)
             }else {
@@ -46,7 +46,7 @@ export default function BurgerIngredients(props) {
           Соусы
         </p>
         <ul className={styles.list}>
-          {datalist && datalist.map( el =>{
+          {dataList && dataList.map( el =>{
             if (el.type == "sauce"){
               return (<Ingredient el={el} key={el._id} setIngredientOpened={props.setIngredientOpened}/>)
             }else {
@@ -59,7 +59,7 @@ export default function BurgerIngredients(props) {
           Начинки
         </p>
         <ul className={styles.list}>
-          {datalist && datalist.map( el =>{
+          {dataList && dataList.map( el =>{
             if (el.type == "main"){
               return (<Ingredient el={el} key={el._id} setIngredientOpened={props.setIngredientOpened}/>)
             }else {
@@ -73,7 +73,7 @@ export default function BurgerIngredients(props) {
 }
 
 BurgerIngredients.propTypes = {
-  datalist: ingredientPropType,
+  dataList: ingredientPropType,  //типизируем сохраненный в переменную пропс
   setIngredientOpened: PropTypes.func.isRequired,
 }
 
