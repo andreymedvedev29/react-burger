@@ -7,7 +7,7 @@ import BunTwo from '../../images/bun-02.png'
 
 
 export default function BurgerConstructor(props) {
-  const dataList = props.data.data; // сохраняем пропс в переменную
+  const dataList = props.data.data; 
   return (
     <div className='ml-10 mt-25'>
       <div >
@@ -65,7 +65,7 @@ export default function BurgerConstructor(props) {
 }
 
 BurgerConstructor.propTypes = {
-  dataList: ingredientPropType, // типизируем сохраненный в переменную пропс
+  data: ingredientPropType,
   openModal: PropTypes.func.isRequired,
 }
 

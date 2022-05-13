@@ -8,7 +8,7 @@ import Ingredient from '../ingredient/Ingredient';
 
 export default function BurgerIngredients(props) {
   const [current, setCurrent] = React.useState('one')
-  const dataList = props.data.data;  // сохраняем пропс в переменную
+  const dataList = props.data.data; 
   return (
     <section className={styles.main}>
       
@@ -73,7 +73,7 @@ export default function BurgerIngredients(props) {
 }
 
 BurgerIngredients.propTypes = {
-  dataList: ingredientPropType,  //типизируем сохраненный в переменную пропс
+  data: ingredientPropType, 
   setIngredientOpened: PropTypes.func.isRequired,
 }
 
