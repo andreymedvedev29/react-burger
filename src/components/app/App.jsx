@@ -20,7 +20,7 @@ export default function App() {
       }
       return Promise.reject(`Ошибка ${res.status}`);
     })
-    .then(setData)
+    .then(setData)  
     .catch((res) => alert(`Ошибка: ${res}`));
   }, []);
 
@@ -64,8 +64,8 @@ export default function App() {
 
       <AppHeader />
       <section className={styles.container}>
-        <BurgerIngredients data={data} setIngredientOpened={setIngredientOpened}/>
-        <BurgerConstructor data={data} openModal={openTotalModal}/>
+        <BurgerIngredients data={data.data} setIngredientOpened={setIngredientOpened}/>
+        <BurgerConstructor data={data.data} openModal={openTotalModal}/>
       </section>
     </div>
   );
