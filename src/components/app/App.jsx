@@ -6,14 +6,14 @@ import BurgerConstructor from '../burger-constructor/BurgerConstructor';
 import Modal from '../modal/Modal';
 import OrderDetails from '../order-details/OrderDetails';
 import IngredientDetails from '../ingredient-details/IngredientDetails';
-import {baseUrl} from '../../utils/data';
+import {URL} from '../../utils/consts';
 
 export default function App() {
   const [orderNumber, setOrderNumber] = useState(555);
   const [data, setData] = useState({})
   
   useEffect(() => {
-    fetch(baseUrl)
+    fetch(URL)
     .then((res) => {
       if (res.ok) {
         return res.json();
