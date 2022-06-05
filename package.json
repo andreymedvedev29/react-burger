@@ -9,12 +9,13 @@
     "@testing-library/user-event": "^13.5.0",
     "@ya.praktikum/react-developer-burger-ui-components": "^1.13.1",
     "react": "^16.13.0",
-    "react-dnd": "^16.0.1",
+    "react-dnd": "^15.1.2",
     "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^16.13.0",
     "react-redux": "^8.0.2",
     "react-scripts": "5.0.0",
     "redux": "^4.2.0",
+    "redux-thunk": "^2.4.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

@@ -1,4 +1,4 @@
-import {React, useState, useEffect} from 'react';
+import {React, useEffect} from 'react';
 import styles from './App.module.css';
 import AppHeader from '../app-header/AppHeader';
 import BurgerIngredients from '../burger-ingredients/BurgerIngredients';
@@ -6,46 +6,30 @@ import BurgerConstructor from '../burger-constructor/BurgerConstructor';
 import Modal from '../modal/Modal';
 import OrderDetails from '../order-details/OrderDetails';
 import IngredientDetails from '../ingredient-details/IngredientDetails';
-import {URL} from '../../utils/consts';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+import { useDispatch, useSelector } from 'react-redux';
+import { SELECT_INGREDIENT, getIngredients } from '../../services/actions/ingredients';
+import { CLEAR_ORDER_NUMBER } from '../../services/actions/order';
+
 
 export default function App() {
-  const [orderNumber, setOrderNumber] = useState(555);
-  const [data, setData] = useState({})
+  const dispatch = useDispatch();
+  const { selectedIngredient } = useSelector((store) => store.ingredients);
+  const { orderNumber } = useSelector((store) => store.order);
   
   useEffect(() => {
-    fetch(URL)
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка ${res.status}`);
-    })
-    .then(setData)  
-    .catch((res) => alert(`Ошибка: ${res}`));
-  }, []);
+    dispatch(getIngredients());
+  }, [dispatch]);
 
-  const [isOrderDetailsOpened, setIsOrderDetailsOpened] = useState(false); 
-  const [ingredientDetailsOpened, setIngredientDetailsOpened] = useState(false);
-  const [ingredientIdOpened, setIngredientIdOpened] = useState(12);
- 
-  const setIngredientOpened = (id) => {
-    setIngredientDetailsOpened(true)
-    setIngredientIdOpened(id)
-  };
-  
-  const openTotalModal = () => {
-    setIsOrderDetailsOpened(true);
-  };
-
-  
   const closeAllModals = () => {
-    setIsOrderDetailsOpened(false);
-    setIngredientDetailsOpened(false);
-  };
+    dispatch({ type: CLEAR_ORDER_NUMBER });
+    dispatch({ type: SELECT_INGREDIENT });
+  }
 
   return (
     <div className={styles.App}>
-      {isOrderDetailsOpened &&
+      {orderNumber &&
         <Modal
           title=""
           onClose={closeAllModals}
@@ -53,19 +37,21 @@ export default function App() {
           <OrderDetails  orderNumber={orderNumber}/>
         </Modal>
       }
-      {ingredientDetailsOpened && 
+      {selectedIngredient && 
       <Modal
         title="Детали ингредиента"
         onClose={closeAllModals}
       >
-        <IngredientDetails IngredientOpened={data.data.find( el => el._id == ingredientIdOpened )}/>
+        <IngredientDetails />
       </Modal>
       }
 
       <AppHeader />
       <section className={styles.container}>
-        <BurgerIngredients data={data.data} setIngredientOpened={setIngredientOpened}/>
-        <BurgerConstructor data={data.data} openModal={openTotalModal}/>
+        <DndProvider backend={HTML5Backend}>
+          <BurgerIngredients />
+          <BurgerConstructor />
+        </DndProvider>
       </section>
     </div>
   );
