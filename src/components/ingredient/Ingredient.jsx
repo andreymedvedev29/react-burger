@@ -1,14 +1,36 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { ingredientPropType } from '../../utils/prop-types';
+import { dataType } from '../../utils/prop-types';
 import styles from './Ingredient.module.css'
 import { Counter,CurrencyIcon} from '@ya.praktikum/react-developer-burger-ui-components';
+import { useDispatch, useSelector } from 'react-redux';
+import { useDrag } from 'react-dnd';
+import { SELECT_INGREDIENT } from '../../services/actions/ingredients';
 
 
-export default function Ingredient({el, setIngredientOpened}) {
+
+export default function Ingredient({el}) {
+  const dispatch = useDispatch();
+  const onIngredientSelected = (id) => {
+    dispatch({
+      type: SELECT_INGREDIENT,
+      ingredient: ingredients.find((el) => el._id === id)
+    })
+  };
+  const { ingredients } = useSelector((store) => store.ingredients);
+  const { burgerStructure } = useSelector((store) => store.burger);
+  let count = burgerStructure.filter((item) => item._id === el._id).length;
+
+  const [{ opacity}, ref] = useDrag({
+    type: 'ingredient',
+    item: { id: el._id },
+    collect: (monitor) => ({
+      opacity: monitor.isDragging() ? 0.7 : 1,
+    }),
+  });
+
   return (
-    <li className={styles.item + " mt-6 ml-5"}  onClick={() => setIngredientOpened(el._id)}>
-      <Counter count={5} size="default"/>
+    <li className={styles.item + " mt-6 ml-5"} styles={{ opacity }} draggable ref={ref} onClick={() => onIngredientSelected(el._id)}>
+      {count > 0 && <Counter count={count} size="default"/>}
       <img className='ml-4 mr-4' src={el.image} alt={el.name}/>
       <div className={styles.priceContainer + " mt-1 mb-1"}>
         <p className="text text_type_digits-default mr-2">{el.price}</p>
@@ -22,6 +44,5 @@ export default function Ingredient({el, setIngredientOpened}) {
 }
 
 Ingredient.propTypes = {
-  el: ingredientPropType.isRequired,
-  setIngredientOpened: PropTypes.func.isRequired,
+  el: dataType.isRequired
 }

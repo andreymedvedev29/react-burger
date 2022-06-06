@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export const ingredientPropType = PropTypes.shape({
+export const dataType = PropTypes.shape({
   _id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['bun', 'main', 'sauce']),

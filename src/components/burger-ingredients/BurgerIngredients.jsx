@@ -1,14 +1,39 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { ingredientPropType } from '../../utils/prop-types';
+import { useRef } from 'react';
+import { useSelector } from 'react-redux';
 import { Tab } from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './BurgerIngredients.module.css';
 import Ingredient from '../ingredient/Ingredient';
 
 
-export default function BurgerIngredients(props) {
-  const [current, setCurrent] = React.useState('one')  
-  const dataList = props.data; 
+export default function BurgerIngredients() {
+  const { ingredients } = useSelector((store) => store.ingredients);
+  const [current, setCurrent] = React.useState('buns')  
+
+  const bunRef= useRef();
+  const sauceRef= useRef();
+  const mainRef= useRef();
+
+  const tabChanger = () => {
+    const tabElementPos = (type, ref) => {
+      return {
+        type, y: Math.abs(ref.current.getBoundingClientRect().y - 400)
+      }
+    }
+    const tabObj = [];
+    tabObj.push(tabElementPos('buns', bunRef));
+    tabObj.push(tabElementPos('sauces', bunRef));
+    tabObj.push(tabElementPos('mains', bunRef));
+
+    const topType = tabObj.reduce((p, c) => {
+      return c.y < p.y ? c : p
+    })
+
+    if (topType = tabObj !== current) {
+      setCurrent(topType.type);
+    }
+  };
+   
   
   return (
     <section className={styles.main}>
@@ -18,26 +43,26 @@ export default function BurgerIngredients(props) {
       </p>
 
       <div className={styles.tab + ' mt-5'}>
-        <Tab value="one" active={current === 'one'} onClick={setCurrent}>
+        <Tab value="buns" active={current === 'buns'} onClick={setCurrent}>
           Булки
         </Tab>
-        <Tab value="two" active={current === 'two'} onClick={setCurrent}>
+        <Tab value="sauces" active={current === 'sauces'} onClick={setCurrent}>
           Соусы
         </Tab>
-        <Tab value="three" active={current === 'three'} onClick={setCurrent}>
+        <Tab value="mains" active={current === 'mains'} onClick={setCurrent}>
           Начинки
         </Tab>
       </div>
 
-      <div className={styles.lists}>
+      <div className={styles.lists} onScroll={tabChanger}>
         <p className="text text_type_main-large mb-6 mt-10">
           Булки
         </p>
-        <ul className={styles.list}>
-          {dataList && dataList.map( el =>{
+        <ul className={styles.list} ref={bunRef}>
+          {ingredients && ingredients.map( el =>{
             if (el.type == "bun"){
-              return (<Ingredient el={el} key={el._id} setIngredientOpened={props.setIngredientOpened}/>)
-            }else {
+              return (<Ingredient el={el} key={el._id} />)
+            } else {
               return null
             }
           })}
@@ -46,10 +71,10 @@ export default function BurgerIngredients(props) {
         <p className="text text_type_main-large mb-6 mt-10">
           Соусы
         </p>
-        <ul className={styles.list}>
-          {dataList && dataList.map( el =>{
+        <ul className={styles.list} ref={sauceRef}>
+          {ingredients && ingredients.map( el =>{
             if (el.type == "sauce"){
-              return (<Ingredient el={el} key={el._id} setIngredientOpened={props.setIngredientOpened}/>)
+              return (<Ingredient el={el} key={el._id} />)
             }else {
               return null
             }
@@ -59,10 +84,10 @@ export default function BurgerIngredients(props) {
         <p className="text text_type_main-large mb-6 mt-10">
           Начинки
         </p>
-        <ul className={styles.list}>
-          {dataList && dataList.map( el =>{
+        <ul className={styles.list} ref={mainRef}>
+          {ingredients && ingredients.map( el =>{
             if (el.type == "main"){
-              return (<Ingredient el={el} key={el._id} setIngredientOpened={props.setIngredientOpened}/>)
+              return (<Ingredient el={el} key={el._id} />)
             }else {
               return null
             }
@@ -73,10 +98,6 @@ export default function BurgerIngredients(props) {
   );
 }
 
-BurgerIngredients.propTypes = {
-  data: PropTypes.arrayOf(ingredientPropType), 
-  setIngredientOpened: PropTypes.func.isRequired,
-}
 
 
 
