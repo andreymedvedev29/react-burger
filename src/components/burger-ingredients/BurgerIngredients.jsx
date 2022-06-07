@@ -22,14 +22,14 @@ export default function BurgerIngredients() {
     }
     const tabObj = [];
     tabObj.push(tabElementPos('buns', bunRef));
-    tabObj.push(tabElementPos('sauces', bunRef));
-    tabObj.push(tabElementPos('mains', bunRef));
+    tabObj.push(tabElementPos('sauces', sauceRef));
+    tabObj.push(tabElementPos('mains', mainRef));
 
     const topType = tabObj.reduce((p, c) => {
       return c.y < p.y ? c : p
     })
 
-    if (topType = tabObj !== current) {
+    if (topType.type !== current) {
       setCurrent(topType.type);
     }
   };

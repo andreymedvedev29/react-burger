@@ -16,16 +16,15 @@ export default function BurgerConstructor() {
   const { burgerStructure } = useSelector((store) => store.burger);
 
   const handleOrderClick = () => {
-    dispatch(saveOrder(burgerStructure.map((el) => {return el._id})));
+    dispatch(saveOrder(burgerStructure.map((element) => {return element._id})));
   }
 
   const addIngredient = (id) => {
     const ingredient = ingredients.find((el) => el._id === id);
     dispatch({
       type: ADD_INGREDIENT,
-      ingredient: { ...ingredient, uuid: uuidv4()}
-    })
-  }
+      ingredient: { ...ingredient, uuid: uuidv4()}});
+  };
 
   const [{ opacity }, target] = useDrop({
     accept: 'ingredient',

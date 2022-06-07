@@ -1,4 +1,4 @@
-import {React, useEffect} from 'react';
+import {useEffect} from 'react';
 import styles from './App.module.css';
 import AppHeader from '../app-header/AppHeader';
 import BurgerIngredients from '../burger-ingredients/BurgerIngredients';
@@ -15,7 +15,7 @@ import { CLEAR_ORDER_NUMBER } from '../../services/actions/order';
 
 export default function App() {
   const dispatch = useDispatch();
-  const { selectedIngredient } = useSelector((store) => store.ingredients);
+  const { ingredients, selectedIngredient } = useSelector((store) => store.ingredients);
   const { orderNumber } = useSelector((store) => store.order);
   
   useEffect(() => {
