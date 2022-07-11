@@ -43,7 +43,7 @@ export function LoginPage() {
             <p className="text text_type_main-default text_color_inactive">
                 Вы - новый пользоватеоь?
             </p>
-            <Link className={styles.Link} to="/register">
+            <Link className={styles.Link} to="/registration">
                 <Button type="secondary" size="medium">
                     Зарегистрироваться
                 </Button>

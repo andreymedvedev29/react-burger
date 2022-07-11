@@ -1,14 +1,18 @@
+//import { Routes, Route, useLocation, useNavigate, Switch, Router } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {useEffect} from 'react';
 import styles from './App.module.css';
 import AppHeader from '../app-header/AppHeader';
-import { LoginPage } from "../../pages/login"
-import BurgerIngredients from '../burger-ingredients/BurgerIngredients';
-import BurgerConstructor from '../burger-constructor/BurgerConstructor';
+import { LoginPage } from "../../pages/login";
+import { RegistrationPage } from "../../pages/registration";
+import { MainPage } from "../../pages/main";
+import { ForgotPasswordPage } from "../../pages/forgot-password";
+import { ResetPasswordPage } from "../../pages/reset-password";
+
 import Modal from '../modal/Modal';
 import OrderDetails from '../order-details/OrderDetails';
 import IngredientDetails from '../ingredient-details/IngredientDetails';
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { SELECT_INGREDIENT, getIngredients } from '../../services/actions/ingredients';
 import { CLEAR_ORDER_NUMBER } from '../../services/actions/order';
@@ -48,12 +52,15 @@ export default function App() {
       }
 
       <AppHeader />
-      <section className={styles.container}>
-        <DndProvider backend={HTML5Backend}>
-          <BurgerIngredients />
-          <BurgerConstructor />
-        </DndProvider>
-      </section>
+      <Router>
+        <Switch>
+          <Route path="/" exact={true}><MainPage /></Route>
+          <Route path="/login" exact={true}><LoginPage /></Route>
+          <Route path="/registration" exact={true}><RegistrationPage /></Route>
+          <Route path="/forgot-password" exact={true}><ForgotPasswordPage /></Route>
+          <Route path="/reset-password" exact={true}><ResetPasswordPage /></Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
