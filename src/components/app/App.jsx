@@ -1,6 +1,7 @@
 import {useEffect} from 'react';
 import styles from './App.module.css';
 import AppHeader from '../app-header/AppHeader';
+import { LoginPage } from "../../pages/login"
 import BurgerIngredients from '../burger-ingredients/BurgerIngredients';
 import BurgerConstructor from '../burger-constructor/BurgerConstructor';
 import Modal from '../modal/Modal';
