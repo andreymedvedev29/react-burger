@@ -1,5 +1,4 @@
-//import { Routes, Route, useLocation, useNavigate, Switch, Router } from 'react-router-dom';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import {useEffect} from 'react';
 import styles from './App.module.css';
 import AppHeader from '../app-header/AppHeader';
@@ -33,6 +32,7 @@ export default function App() {
   }
 
   return (
+    
     <div className={styles.App}>
       {orderNumber &&
         <Modal
@@ -52,15 +52,16 @@ export default function App() {
       }
 
       <AppHeader />
-      <Router>
-        <Switch>
+      <Routes>
+       
           <Route path="/" exact={true}><MainPage /></Route>
           <Route path="/login" exact={true}><LoginPage /></Route>
           <Route path="/registration" exact={true}><RegistrationPage /></Route>
           <Route path="/forgot-password" exact={true}><ForgotPasswordPage /></Route>
           <Route path="/reset-password" exact={true}><ResetPasswordPage /></Route>
-        </Switch>
-      </Router>
+        
+      </Routes>
     </div>
+   
   );
 }

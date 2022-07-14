@@ -5,21 +5,46 @@ import {
   Input,
   Button,
 } from "@ya.praktikum/react-developer-burger-ui-components";
+import { forgotPass } from "../services/api";
+import { useNavigate } from "react-router-dom";
 
 
 export function ForgotPasswordPage() {
+  const [form, setValue] = useState({ name: "", email: "", password: ""});
+  const handleChange = (e) => {
+    setValue({ ...form, [e.target.name]: e.target.value });
+  };
+  const navigate = useNavigate();
+  let resetHandler = useCallback(
+    (e) => {
+      e.preventDefault();
+      forgotPass(form.email)
+        .then((res) => {
+          if (res && res.success) {
+            navigate("/reset-password");
+          }
+        })
+        .catch((res) => {
+          alert(res);
+        });
+    },
+    [form]
+  );
+
   return (
     <div className={styles.app}>
       <section className={styles.container}>
-        <form  className={styles.form}>
-          <p className="text text_type_main-medium mb-6">Восстановление пароля</p>
+        <form  onSubmit={resetHandler} className={styles.form} id="form-fprgot">
+          <p className="text text_type_main-medium mb-6">
+            Восстановление пароля
+          </p>
           <div className={styles.inputContainer + " mb-6"}>
             <Input
               type={"email"}
               placeholder={" Укажите email"}
-              //onChange={handleChange}
+              onChange={handleChange}
               icon={"EditIcon"}
-              //value={form.email}
+              value={form.email}
               name={"email"}
               error={false}
               errorText={"Ошибка"}
