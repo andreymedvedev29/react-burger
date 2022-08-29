@@ -4,8 +4,8 @@ import { NavLink, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { exitRequest } from "../services/actions/authorization.js";
-import ProfileForm from "../components/change-profile-form/change-profile-form";
-import OrderHistory from "../components/order-history/order-history";
+//import ProfileForm from "../components/change-profile-form/change-profile-form";
+//import OrderHistory from "../components/order-history/order-history";
 import { useEffect } from "react";
 import { getCookie } from "../utils/utils";
 import {
@@ -28,11 +28,11 @@ export function ProfilePage() {
     navigate("/login");
   });
 
-  useEffect(() => {
-    if ((!wsConnected && !wsRequested) || !wsSecure) {
-      dispatch(wsConnectionStart("", getCookie("accessToken")));
-    }
-  }, [wsConnected, wsRequested, dispatch]);
+  //useEffect(() => {
+  //  if ((!wsConnected && !wsRequested) || !wsSecure) {
+  //    dispatch(wsConnectionStart("", getCookie("accessToken")));
+  //  }
+  //}, [wsConnected, wsRequested, dispatch]);
 
   useEffect(() => () => dispatch(wsConnectionClosed()), [dispatch]);
 
@@ -79,10 +79,7 @@ export function ProfilePage() {
         </li>
       </ul>
 
-      {location.pathname === "/profile" && <ProfileForm />}
-      {location.pathname.includes("/orders") && (
-        <OrderHistory orders={orders} />
-      )}
+   
     </section>
   );
 }

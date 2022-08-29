@@ -1,16 +1,15 @@
 
-import React from 'react';
-import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import React, { useCallback } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import { Logo, BurgerIcon, ListIcon, ProfileIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './AppHeader.module.css'
 
 export default function AppHeader() {
   const { pathname } = useLocation();
-  const navigate = useNavigate();
 
   return (
     <header className={styles.AppHeader + " mt-10"}>
-      <nav className={styles.navbar}>
+      <nav className={styles.nav}>
         <ul className={styles.menu}>
           <li className={styles.constructor + " ml-5"}>
             <NavLink
@@ -41,7 +40,7 @@ export default function AppHeader() {
               </p>
             </NavLink>
           </li>
-          <li className={styles.logo} onClick={() => navigate("/")}>
+          <li className={styles.logo} >
             <Logo />
           </li>
           <li className={styles.profile + " p-5 mt-4 mb-4"}>
